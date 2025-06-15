@@ -69,7 +69,7 @@ def search_movies(title, genres, language, overview, tagline, company):
 # ===== Graphical User Interface (GUI) =====
 def run_gui():
     root = tk.Tk()
-    root.title("🎬 Movie Recommender System")
+    root.title("🎬 VibeFlicks")
     root.geometry("1020x720")
     root.configure(bg="#FFF3E0")  # Light theme background by default
 
