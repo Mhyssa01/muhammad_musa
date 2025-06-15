@@ -55,7 +55,7 @@ def search_movies(title, genres, language, overview, tagline, company):
     cosine_sim = cosine_similarity(query_vector, vectors_sparse).flatten()
 
     # Filter results by similarity threshold and original language condition
-    threshold = 0.15
+    threshold = 0.5
     filtered_indices = filtered_df.index.tolist()
     valid_indices = [i for i in filtered_indices if cosine_sim[i] >= threshold]
 
