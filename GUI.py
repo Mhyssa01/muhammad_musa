@@ -62,7 +62,7 @@ def search_movies(title, genres, language, overview, tagline, company):
     if not valid_indices:
         return pd.DataFrame()  # Return empty DataFrame if no match
 
-    # Sort by similarity and return top 50 results
+    # Sort by similarity and return top 1000 results
     sorted_indices = sorted(valid_indices, key=lambda x: cosine_sim[x], reverse=True)[:1000]
     return df.iloc[sorted_indices][['title', 'vote_average', 'release_date']]
 
