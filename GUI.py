@@ -48,7 +48,7 @@ def search_movies(title, genres, language, overview, tagline, company):
 
     # Return top movies in the selected language if no query input is provided
     if not any([title, genres, overview, tagline, company]) and language:
-        return filtered_df[['title', 'vote_average', 'release_date']].head(50)
+        return filtered_df[['title', 'vote_average', 'release_date']].head(1000)
 
     # Compute cosine similarity between query and movie dataset
     query_vector = cv.transform([query])
@@ -63,7 +63,7 @@ def search_movies(title, genres, language, overview, tagline, company):
         return pd.DataFrame()  # Return empty DataFrame if no match
 
     # Sort by similarity and return top 50 results
-    sorted_indices = sorted(valid_indices, key=lambda x: cosine_sim[x], reverse=True)[:50]
+    sorted_indices = sorted(valid_indices, key=lambda x: cosine_sim[x], reverse=True)[:1000]
     return df.iloc[sorted_indices][['title', 'vote_average', 'release_date']]
 
 # ===== Graphical User Interface (GUI) =====
