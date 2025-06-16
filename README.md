@@ -24,7 +24,7 @@ VibeFlicks is a content-based movie recommendation system built with **Python**,
 ## 🗃 Dataset
 
 - **Source**: `top_1000_popular_movies_tmdb.csv`
-- Assumes the dataset includes columns like:
+- The dataset includes columns like:
   - `title`
   - `genres`
   - `overview`
@@ -36,10 +36,8 @@ VibeFlicks is a content-based movie recommendation system built with **Python**,
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ How It Works(Steps)
 
-| Step | Description |
-|------|-------------|
 | **1. Preprocessing** | The dataset is cleaned by extracting text from nested structures and converting them into a combined `tags` column. |
 | **2. Vectorization** | The `tags` are converted into numeric vectors using `CountVectorizer` with stop-word removal. |
 | **3. Similarity Calculation** | The user's input is vectorized and compared to all movie vectors using **cosine similarity**. |
@@ -62,24 +60,19 @@ VibeFlicks is a content-based movie recommendation system built with **Python**,
 ## 💻 How to Run
 
 1. Ensure you have Python 3.x installed.
-2. Install required libraries:
-   ```bash
-   pip install pandas scikit-learn
-   ```
+2. Install required libraries: pip install pandas scikit-learn
 3. Place the dataset `top_1000_popular_movies_tmdb.csv` in the same directory as the script.
-4. Run the script:
-   ```bash
-   python movie_recommender.py
-   ```
+4. Run the script: movie_recommender.py
+
 
 ---
 
 ## 🎨 Screenshots
 
-| Light Mode | Dark Mode |
-|------------|-----------|
-| *(Insert GUI screenshot here)* | *(Insert dark mode screenshot here)* |
-
+| Light Mode |
+| can open the file: Light_mode.jpg | 
+|Dark Mode |
+| can open the file: Dark_mode.png |
 ---
 
 ## 📌 Notes
