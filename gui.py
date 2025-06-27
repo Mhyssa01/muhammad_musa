@@ -1,9 +1,30 @@
-import tkinter as tk
+import tkinter as tk 
 from tkinter import messagebox, ttk
 import pandas as pd
 from movie_search import search_movies
 
 def run_gui(df, cv, vectors_sparse):
+    """
+    Launches a Tkinter-based graphical user interface (GUI) for a content-based movie recommendation system.
+
+    Args:
+        df (pd.DataFrame): The movie dataset containing cleaned and preprocessed fields used for matching.
+        cv (CountVectorizer): The CountVectorizer instance used for feature extraction from the movie tags.
+        vectors_sparse (scipy.sparse matrix): Sparse matrix representing vectorized movie tags for similarity comparison.
+
+    Features:
+        - Entry fields for user to input search parameters: language, title, genre, overview, tagline, and production company.
+        - A "Search" button that calls the `search_movies` function to retrieve recommendations.
+        - Results displayed in a Treeview with columns for title, rating, and release date.
+        - Toggle for Dark Mode to switch UI themes for accessibility and comfort.
+
+    Dependencies:
+        - `search_movies`: Function used to filter and rank movies based on similarity.
+        - `tkinter`, `ttk`, and `messagebox`: For building and managing the GUI interface.
+
+    Returns:
+        None
+    """
     root = tk.Tk()
     root.title("🎬 VibeFlicks")
     root.geometry("1020x720")
@@ -12,6 +33,7 @@ def run_gui(df, cv, vectors_sparse):
     dark_mode = tk.BooleanVar(value=False)
 
     def toggle_dark():
+        """Toggle between light and dark UI themes."""
         if dark_mode.get():
             root.configure(bg="#212121")
             input_frame.configure(bg="#424242")
@@ -81,6 +103,7 @@ def run_gui(df, cv, vectors_sparse):
     style.configure("Treeview", font=("Segoe UI", 10), background="#FFFDE7", fieldbackground="#FFFDE7")
 
     def on_search():
+        """Triggered when user clicks the Search button. Retrieves and displays recommended movies."""
         tree.delete(*tree.get_children())
         inputs = [e.get().strip() for e in entries]
         if all(val == "" for val in inputs):
